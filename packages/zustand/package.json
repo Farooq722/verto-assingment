@@ -1,0 +1,21 @@
+{
+  "name": "@repo/zustand",
+  "main": "dist/store.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/store.js"
+  },
+  "scripts": {
+    "build": "tsc --outDir dist --declaration"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "zustand": "^5.0.8"
+  }
+}

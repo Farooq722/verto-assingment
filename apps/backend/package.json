@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npx esbuild src/index.ts --bundle --platform=node --format=cjs --target=node18 --outdir=dist --out-extension:.js=.cjs --tsconfig=tsconfig.json",
+    "start": "node dist/index.cjs",
+    "dev": "nodemon --watch src --ext ts --exec \"bun run build && node dist/index.cjs\""
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "esbuild": "^0.25.10",
+    "tsx": "^4.20.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "better-sqlite3": "^12.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "prisma": "^6.16.2",
+    "ts-node": "^10.9.2",
+    "zod": "^4.1.11"
+  }
+}
