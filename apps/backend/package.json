@@ -7,11 +7,11 @@
     "start:api": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts",
     "generate": "bunx prisma generate",
-    "migrate": "bunx prisma migrate dev",
-    "db:deploy": "bunx prisma migrate deploy && bun run generate",
-    "build": "bunx prisma generate && bunx esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --format=esm --external:@prisma/client --external:express",
-    "start:prod": "node dist/index.js",
-    "vercel-build": "bun run build"
+    "migrate": "bun prisma migrate dev",
+    "start": "bun run build && bun run src/index.ts",
+    "build": "bun prisma migrate deploy && bun run generate",
+    "vercel-build": "prisma migrate deploy && prisma generate",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",

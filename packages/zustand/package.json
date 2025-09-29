@@ -1,9 +1,12 @@
 {
   "name": "@repo/zustand",
-  "main": "src/store.ts",
+  "main": "dist/store.js",
   "type": "module",
   "exports": {
-    ".": "./src/store.ts"
+    ".": "./dist/store.js"
+  },
+  "scripts": {
+    "build": "tsc --declaration --outDir dist"
   },
   "private": true,
   "devDependencies": {

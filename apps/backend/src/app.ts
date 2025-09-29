@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { empRouter } from "./routes";
+import { empRouter } from "./routes/index.js";
 
 const app = express();
 app.use(express.json());

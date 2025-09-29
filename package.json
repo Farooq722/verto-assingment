@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "start": "turbo run start",
     "dev": "turbo run dev",
-    "vercel-build": "npx tsc -p tsconfig.json --noEmit && npx turbo run build",
     "lint": "turbo run lint",
     "start:api": "turbo run start:api --filter=\"backend\"",
     "db:deploy": "turbo run db:deploy",
