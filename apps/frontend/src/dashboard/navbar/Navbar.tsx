@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useEmployeeData } from "@repo/zustand";
 import { useState } from "react";
@@ -127,22 +126,22 @@ export default function Navbar() {
                     </p>
                   )}
 
-                  <Button
+                  <button
                     type="submit"
                     className="px-4 py-2 bg-sky-500 cursor-pointer font-semibold hover:bg-sky-600 text-white rounded w-full mt-5"
                   >
                     {isLoading ? <PuffLoader size={16} /> : "Submit"}
-                  </Button>
+                  </button>
                 </form>
               </div>
             </div>
           )}
-          <Button
+          <button
             className="cursor-pointer px-6 py-5.5 hover:bg-gray-700"
             onClick={() => setIsOpen(true)}
           >
             Add Employee
-          </Button>
+          </button>
         </div>
       </div>
     </div>

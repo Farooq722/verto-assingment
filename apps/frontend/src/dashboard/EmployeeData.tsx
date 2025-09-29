@@ -5,7 +5,6 @@ import axios from "axios";
 import { toast } from "sonner";
 import { PuffLoader } from "react-spinners";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { MdOutlineCancel } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
@@ -27,6 +26,7 @@ export default function EmployeeData() {
   const [editId, setEditId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
+  console.log(allEmployees);
   const {
     register,
     reset,
@@ -222,12 +222,12 @@ export default function EmployeeData() {
                             </p>
                           )}
 
-                          <Button
+                          <button
                             type="submit"
                             className="px-4 py-2 bg-sky-500 cursor-pointer font-semibold hover:bg-sky-600 text-white rounded w-full mt-5"
                           >
                             {isLoading ? <PuffLoader size={16} /> : "Submit"}
-                          </Button>
+                          </button>
                         </form>
                       </div>
                     </div>
