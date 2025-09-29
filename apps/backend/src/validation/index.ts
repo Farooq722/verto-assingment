@@ -11,4 +11,3 @@ export const updateSchema = z.object({
   email: z.email().optional(),
   position: z.string().optional(),
 });
-

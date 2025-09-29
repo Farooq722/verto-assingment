@@ -12,7 +12,7 @@ export default function Dashboard() {
     const fetchEmployess = async () => {
       setIsLoading(true);
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URI}/data/`
+        `${import.meta.env.VITE_BACKEND_URI}/data/`,
       );
       setAllEmployees(data.allEmployees);
       setIsLoading(false);

@@ -7,7 +7,6 @@ interface Employees {
   position: string;
 }
 
-
 interface EmployeeStore {
   allEmployees: Employees[];
   isLoading: boolean;
@@ -37,7 +36,7 @@ export const useEmployeeData = create<EmployeeStore>((set) => ({
   updateEmployee: (id, updated) =>
     set((state) => ({
       allEmployees: state.allEmployees.map((emp) =>
-        emp.id === id ? { ...emp, ...updated } : emp
+        emp.id === id ? { ...emp, ...updated } : emp,
       ),
     })),
 

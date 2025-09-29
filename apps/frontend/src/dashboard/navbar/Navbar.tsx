@@ -31,7 +31,7 @@ export default function Navbar() {
       setIsLoading(true);
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URI}/data/`,
-        data
+        data,
       );
       if (res.data?.success) {
         toast.success(res.data.msg || "Employee Added Successfully");
