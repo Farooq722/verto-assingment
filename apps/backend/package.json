@@ -4,12 +4,13 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "postinstall": "bunx prisma generate",
     "start:api": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts",
     "generate": "bunx prisma generate",
     "migrate": "bun prisma migrate dev",
-    "db:deploy": "bun prisma migrate deploy && bun run generate"
+    "db:deploy": "bun prisma migrate deploy && bun run generate",
+    "vercel-build": "db:deploy",
+    "postinstall": "db:deploy"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
