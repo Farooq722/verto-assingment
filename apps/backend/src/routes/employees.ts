@@ -1,6 +1,6 @@
 import express from "express";
 import { empSchema, updateSchema } from "../validation";
-import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma.js";
 
 export const employees = express.Router();
 
