@@ -9,7 +9,7 @@
     "lib": ["es2022"],
     "module": "ES2022",           
     "moduleDetection": "force",
-    "moduleResolution": "bundler", 
+    "moduleResolution": "node", 
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
