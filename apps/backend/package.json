@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "postinstall": "bunx prisma generate",
     "start:api": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts",
     "generate": "bunx prisma generate",

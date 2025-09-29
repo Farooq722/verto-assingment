@@ -137,7 +137,7 @@ export default function Navbar() {
             </div>
           )}
           <button
-            className="cursor-pointer px-6 py-5.5 hover:bg-gray-700"
+            className="cursor-pointer px-6 py-3 rounded-2xl bg-gray-900 text-white font-semibold hover:bg-gray-800"
             onClick={() => setIsOpen(true)}
           >
             Add Employee
