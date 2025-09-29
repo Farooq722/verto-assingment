@@ -4,8 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun run --watch src/index.ts"
+    "start:api": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts",
+    "generate": "bunx prisma generate",
+    "migrate": "bun prisma migrate dev",
+    "db:deploy": "bun prisma migrate deploy && bun run generate"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
