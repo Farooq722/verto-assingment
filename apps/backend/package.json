@@ -9,8 +9,8 @@
     "generate": "bunx prisma generate",
     "migrate": "bun prisma migrate dev",
     "db:deploy": "bun prisma migrate deploy && bun run generate",
-    "vercel-build": "db:deploy",
-    "postinstall": "db:deploy"
+    "vercel-build": "bun run db:deploy",
+    "postinstall": "bun run db:deploy"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
