@@ -8,17 +8,14 @@ import { RingLoader } from "react-spinners";
 export default function Dashboard() {
   const { setAllEmployees, isLoading, setIsLoading } = useEmployeeData();
 
-  console.log("isloading ", isLoading);
   useEffect(() => {
     const fetchEmployess = async () => {
       setIsLoading(true);
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URI}/data/`,
       );
-      console.log("data", data);
       setAllEmployees(data.allEmployees);
       setIsLoading(false);
-      console.log("isLoading", isLoading);
     };
     fetchEmployess();
   }, []);
