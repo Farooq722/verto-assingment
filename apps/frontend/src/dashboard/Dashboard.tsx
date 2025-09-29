@@ -9,27 +9,29 @@ export default function Dashboard() {
   const { setAllEmployees, isLoading, setIsLoading } = useEmployeeData();
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchEmployess = async () => {
+      setIsLoading(true);
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URI}/data/`
       );
       setAllEmployees(data.allEmployees);
+      setIsLoading(false);
     };
-    setIsLoading(false);
     fetchEmployess();
   }, []);
 
-  if (isLoading) {
-    <div className="flex justify-center items-center">
-      <RingLoader color="green" size={25} />
-    </div>;
-  }
-
   return (
     <div className="max-w-[85rem] mx-auto h-screen">
-      <Navbar />
-      <EmployeeData />
+      {isLoading ? (
+        <div className="flex justify-center items-center h-screen">
+          <RingLoader color="blue" size={35} />
+        </div>
+      ) : (
+        <div>
+          <Navbar />
+          <EmployeeData />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,19 +1,20 @@
 import { create } from "zustand";
 
-interface Employee {
+interface Employees {
   id: string;
   name: string;
   email: string;
   position: string;
 }
 
+
 interface EmployeeStore {
-  allEmployees: Employee[];
-  isLoading: boolean,
+  allEmployees: Employees[];
+  isLoading: boolean;
   setIsLoading: (status: boolean) => void;
-  setAllEmployees: (data: Employee[]) => void;
-  addEmployee: (emp: Employee) => void;
-  updateEmployee: (id: string, updated: Partial<Employee>) => void;
+  setAllEmployees: (data: Employees[]) => void;
+  addEmployee: (emp: Employees) => void;
+  updateEmployee: (id: string, updated: Partial<Employees>) => void;
   deleteEmployee: (id: string) => void;
 }
 
@@ -21,7 +22,7 @@ export const useEmployeeData = create<EmployeeStore>((set) => ({
   allEmployees: [],
 
   isLoading: false,
-  
+
   setAllEmployees: (data) => set({ allEmployees: data }),
 
   setIsLoading: (status) => set({ isLoading: status }),

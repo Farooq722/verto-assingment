@@ -1,7 +1,6 @@
 import express from "express";
 import { empSchema, updateSchema } from "../validation";
 import { prisma } from "../lib/prisma";
-import { email } from "zod";
 
 export const employees = express.Router();
 
@@ -29,7 +28,7 @@ employees.post("/", async (req, res) => {
   }
 
   try {
-    await prisma.employee.create({
+    const employee = await prisma.employee.create({
       data: {
         name: parseBody.data.name,
         email: parseBody.data.email,
@@ -38,6 +37,7 @@ employees.post("/", async (req, res) => {
     });
 
     res.status(200).json({
+      id: employee.id,
       msg: "Employee created successfully",
       success: true,
     });
