@@ -112,13 +112,13 @@ export default function EmployeeData() {
             className="bg-gray-300 text-black py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition-colors"
           />
           <p className="text-2xl font-bold text-gray-700">
-            Count: {allEmployees.length > 1000 ? "1000+" : allEmployees.length}
+            Count: {allEmployees?.length > 1000 ? "1000+" : allEmployees?.length}
           </p>
         </div>
       </div>
       <span className="block h-[1px] bg-gradient-to-r from-transparent via-neutral-400 to-transparent rounded-2xl mt-2.5" />
       <div>
-        {filterData.length > 0 ? (
+        {filterData?.length > 0 ? (
           filterData.map((emp, idx) => (
             <div className="max-w-7xl mx-auto mt-4" key={idx}>
               <div className="flex flex-wrap justify-between items-center gap-4 mx-4 border py-3 px-4 rounded-xl bg-gray-300">
