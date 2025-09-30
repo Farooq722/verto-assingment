@@ -33,11 +33,11 @@ export default function EmployeeData() {
     formState: { errors },
   } = useForm<InputForm>();
 
-  const handleDelete = async (empId: any) => {
+  const handleDelete = async (empId: string) => {
     try {
       setIsLoading(true);
       const res = await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URI}/data/${empId}`,
+        `${import.meta.env.VITE_BACKEND_URI}/data/${empId}`
       );
       if (res?.data?.success) {
         deleteEmployee(empId);
@@ -55,9 +55,9 @@ export default function EmployeeData() {
     const emp = allEmployees?.find((e) => e.id === id);
     if (!emp) return toast.error("Employee not found");
     reset({
-      name: emp.name ?? "",
-      email: emp.email ?? "",
-      position: emp.position ?? "",
+      name: emp?.name ?? "",
+      email: emp?.email ?? "",
+      position: emp?.position ?? "",
     });
     setEditId(id);
     setIsOpen(true);
@@ -73,7 +73,7 @@ export default function EmployeeData() {
     try {
       const res = await axios.patch(
         `${import.meta.env.VITE_BACKEND_URI}/data/update/${editId}`,
-        data,
+        data
       );
       if (res.data?.success) {
         toast.success(res.data?.msg || "Updated");
@@ -93,9 +93,8 @@ export default function EmployeeData() {
   };
 
   const filterData = allEmployees?.filter((emp) =>
-    emp.name.toLowerCase().includes(search.toLowerCase()),
+    emp.name.toLowerCase().includes(search.toLowerCase())
   );
-
 
   return (
     <div className="bg-gray-200 border border-gray-700 h-screen mt-5 rounded-2xl">
@@ -110,7 +109,8 @@ export default function EmployeeData() {
             className="bg-gray-300 text-black py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition-colors"
           />
           <p className="text-2xl font-bold text-gray-700">
-            Count: {allEmployees?.length > 1000 ? "1000+" : allEmployees?.length}
+            Count:{" "}
+            {allEmployees?.length > 1000 ? "1000+" : allEmployees?.length}
           </p>
         </div>
       </div>
@@ -180,9 +180,9 @@ export default function EmployeeData() {
                               {...register("name")}
                             />
                           </div>
-                          {errors.name && (
+                          {errors?.name && (
                             <p className="text-red-500 text-sm">
-                              {errors.name.message}
+                              {errors?.name?.message}
                             </p>
                           )}
 
@@ -197,9 +197,9 @@ export default function EmployeeData() {
                               {...register("email")}
                             />
                           </div>
-                          {errors.email && (
+                          {errors?.email && (
                             <p className="text-red-500 text-sm">
-                              {errors.email.message}
+                              {errors?.email?.message}
                             </p>
                           )}
 
@@ -214,9 +214,9 @@ export default function EmployeeData() {
                               {...register("position")}
                             />
                           </div>
-                          {errors.position && (
+                          {errors?.position && (
                             <p className="text-red-500 text-sm">
-                              {errors.position.message}
+                              {errors?.position?.message}
                             </p>
                           )}
 

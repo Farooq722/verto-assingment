@@ -32,9 +32,9 @@ export default function Navbar() {
         `${import.meta.env.VITE_BACKEND_URI}/data/`,
         data,
       );
-      if (res.data?.success) {
+      if (res?.data?.success) {
         toast.success(res.data.msg || "Employee Added Successfully");
-        addEmployee({ ...data, id: res.data.id });
+        addEmployee({ ...data, id: res.data?.id });
         reset();
         setIsOpen(false);
       } else {
@@ -87,9 +87,9 @@ export default function Navbar() {
                       className="px-4 py-1.5 rounded w-[70%] border border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition-colors"
                       {...register("name")}
                     />
-                    {errors.name && (
+                    {errors?.name && (
                       <p className="text-red-500 text-sm">
-                        {errors.name.message}
+                        {errors?.name?.message}
                       </p>
                     )}
                   </div>
@@ -103,9 +103,9 @@ export default function Navbar() {
                       {...register("email")}
                     />
                   </div>
-                  {errors.email && (
+                  {errors?.email && (
                     <p className="text-red-500 text-sm">
-                      {errors.email.message}
+                      {errors?.email?.message}
                     </p>
                   )}
 
@@ -120,9 +120,9 @@ export default function Navbar() {
                       {...register("position")}
                     />
                   </div>
-                  {errors.position && (
+                  {errors?.position && (
                     <p className="text-red-500 text-sm">
-                      {errors.position.message}
+                      {errors?.position?.message}
                     </p>
                   )}
 
