@@ -26,7 +26,6 @@ export default function EmployeeData() {
   const [editId, setEditId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
-  console.log(allEmployees);
   const {
     register,
     reset,
@@ -40,20 +39,20 @@ export default function EmployeeData() {
       const res = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URI}/data/${empId}`,
       );
-      if (res.data.success) {
+      if (res?.data?.success) {
         deleteEmployee(empId);
-        toast.success(res.data.msg);
+        toast.success(res?.data?.msg);
       }
     } catch (error: any) {
       console.error(error);
-      toast.error(error.response?.data.msg || "Something went wrong");
+      toast.error(error?.response?.data?.msg || "Something went wrong");
     } finally {
       setIsLoading(false);
     }
   };
 
   const clickEditForId = (id: string) => {
-    const emp = allEmployees.find((e) => e.id === id);
+    const emp = allEmployees?.find((e) => e.id === id);
     if (!emp) return toast.error("Employee not found");
     reset({
       name: emp.name ?? "",
@@ -77,7 +76,7 @@ export default function EmployeeData() {
         data,
       );
       if (res.data?.success) {
-        toast.success(res.data.msg || "Updated");
+        toast.success(res.data?.msg || "Updated");
         updateEmployee(editId, data);
         reset();
         setIsOpen(false);
@@ -93,11 +92,10 @@ export default function EmployeeData() {
     }
   };
 
-  const filterData = allEmployees.filter((emp) =>
+  const filterData = allEmployees?.filter((emp) =>
     emp.name.toLowerCase().includes(search.toLowerCase()),
   );
 
-  console.log(allEmployees);
 
   return (
     <div className="bg-gray-200 border border-gray-700 h-screen mt-5 rounded-2xl">
